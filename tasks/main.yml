@@ -4,10 +4,16 @@
     path: "{{ destdir }}"
     state: directory
 
+- name: Check Download File Existence
+  win_stat:
+    path: "{{ dest }}"
+  register: is_exe
+
 - name: Download InstallShield
   win_get_url:
     url: "{{ url }}"
     dest: "{{ dest }}"
+  when: not is_exe.stat.exists
 
 - name: Install InstallShield
   win_command: .\{{ destfile }} /Silent /DebugLog
