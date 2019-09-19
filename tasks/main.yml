@@ -1,0 +1,16 @@
+---
+- name: Ensure Download Directory Exists
+  win_file:
+    path: "{{ destdir }}"
+    state: directory
+
+- name: Download InstallShield
+  win_get_url:
+    url: "{{ url }}"
+    dest: "{{ dest }}"
+
+- name: Install InstallShield
+  win_command: .\{{ destfile }} /Silent /DebugLog
+  args:
+    chdir: "{{ destdir }}"
+    creates: C:\Program Files (x86)\InstallShield\{{ version }}\

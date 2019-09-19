@@ -1,0 +1,3 @@
+---
+destdir: "{{ dest | win_dirname }}"
+destfile: "{{ dest | win_basename }}"
