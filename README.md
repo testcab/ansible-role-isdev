@@ -1,7 +1,7 @@
 ansible-role-isdev
 ==================
 
-Install InstallShield on Windows machines.
+Install InstallShield onto Windows machines.
 
 Requirements
 ------------
@@ -9,8 +9,6 @@ Requirements
 None.
 
 This ansible role by default downloads InstallShield 2019 from Flexera. If you need to download and install another version, you must specify the version, source url and destination path in role variables.
-
-This ansible role runs on both Windows and Linux.
 
 Role Variables
 --------------
